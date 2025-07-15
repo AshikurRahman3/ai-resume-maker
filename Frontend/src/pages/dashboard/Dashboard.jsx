@@ -27,20 +27,26 @@ function Dashboard() {
 
   return (
     <div className="p-10 md:px-20 lg:px-32">
-      <h2 className="font-bold text-3xl">My Resume</h2>
-      <p className="py-3"> Start creating your Ai resume for next Job role</p>
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 grid-cols-1 mt-5 gap-4">
-        <AddResume />
-        {resumeList.length > 0 &&
-          resumeList.map((resume, index) => (
-            <ResumeCard
-              key={resume._id}
-              resume={resume}
-              refreshData={fetchAllResumeData}
-            />
-          ))}
-      </div>
-    </div>
+  <h2 className="font-extrabold text-3xl text-transparent bg-clip-text bg-gradient-to-r from-purple-500 via-pink-500 to-red-500 drop-shadow-md">
+    My Resumes
+  </h2>
+  <p className="py-3 text-gray-500 font-medium">
+    Build smart, eye-catching resumes tailored for your next career move.
+  </p>
+
+  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-6">
+    <AddResume />
+    {resumeList.length > 0 &&
+      resumeList.map((resume, index) => (
+        <ResumeCard
+          key={resume._id}
+          resume={resume}
+          refreshData={fetchAllResumeData}
+        />
+      ))}
+  </div>
+</div>
+
   );
 }
 

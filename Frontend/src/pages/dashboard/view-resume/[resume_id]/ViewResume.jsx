@@ -28,39 +28,36 @@ function ViewResume() {
   return (
     <>
       <div className="flex flex-col justify-center items-center">
-        <div id="noPrint">
-          <div className="my-10 mx-10 md:mx-20 lg:mx-36">
-            <h2 className="text-center text-2xl font-medium">
-              Congrats! Your Ultimate AI generates Resume is ready !{" "}
-            </h2>
-            <p className="text-center text-gray-400">
-              Now you are ready to download your resume and you can share unique
-              resume url with your friends and family{" "}
-            </p>
-            <div className="flex justify-between px-44 my-10">
-              <Button onClick={HandleDownload}>Download</Button>
-              <RWebShare
-                data={{
-                  text: "Hello This is My resume",
-                  url: import.meta.env.VITE_BASE_URL + "/dashboard/view-resume/" + resume_id,
-                  title: "Flamingos",
-                }}
-                onClick={() => toast("Resume Shared Successfully")}
-              >
-                <Button>Share</Button>
-              </RWebShare>
-            </div>
-          </div>
-        </div>
-        <div
-          className=" bg-white rounded-lg p-8 print-area"
-          style={{ width: "210mm", height: "297mm" }}
+  <div id="noPrint">
+    <div className="my-10 mx-10 md:mx-20 lg:mx-36 text-center">
+      <h2 className="text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-purple-500 via-pink-500 to-red-500 drop-shadow-lg">
+        🎉 Your AI-Powered Resume Is Ready!
+      </h2>
+      
+
+      <div className="flex flex-col sm:flex-row justify-center sm:justify-between items-center gap-4 px-6 sm:px-44 my-10">
+        <Button
+          className="px-6 py-3 bg-gradient-to-r from-purple-500 via-pink-500 to-red-500 text-white font-semibold rounded-2xl shadow-lg hover:scale-105 transition-transform duration-300"
+          onClick={HandleDownload}
         >
-          <div className="print">
-            <ResumePreview />
-          </div>
-        </div>
+          Download PDF
+        </Button>
+
+       
       </div>
+    </div>
+  </div>
+
+  <div
+    className="bg-white rounded-3xl shadow-xl p-8 print-area transition-transform hover:scale-[1.01]"
+    style={{ width: "210mm", height: "297mm" }}
+  >
+    <div className="print">
+      <ResumePreview />
+    </div>
+  </div>
+</div>
+
     </>
   );
 }
