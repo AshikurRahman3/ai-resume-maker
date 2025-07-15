@@ -83,6 +83,10 @@ function Summary({ resumeInfo, enanbledNext, enanbledPrev }) {
       console.log(JSON.parse(result.response.text()));
       // setAiGenerateSummeryList(JSON.parse(result.response.text()));
       setAiGenerateSummeryList(summariesArray);
+      if (summariesArray.length > 0) {
+  setSummery(summariesArray[0].summary); // Automatically insert first suggestion into textarea
+}
+
       toast("Summery Generated", "success");
     } catch (error) {
       console.log(error);
