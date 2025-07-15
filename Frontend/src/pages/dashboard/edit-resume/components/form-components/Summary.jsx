@@ -74,18 +74,27 @@ function Summary({ resumeInfo, enanbledNext, enanbledPrev }) {
     const PROMPT = prompt.replace("{jobTitle}", resumeInfo?.jobTitle);
     try {
       const result = await AIChatSession.sendMessage(PROMPT);
-      const parsed = JSON.parse(result.response.text());
-      console.log('AI response parsed:', parsed);
+      const raw = await result.response.text();
+console.log("AI RAW response:", raw);
+
+const parsed = JSON.parse(raw);
+console.log("AI response parsed:", parsed);
+
+
+
+
 
       // Extract summaries array
-    const summariesArray = Array.isArray(parsed.summaries) ? parsed.summaries : [];
+const summariesArray = Array.isArray(parsed.summary_list) ? parsed.summary_list : [];
 
-      console.log(JSON.parse(result.response.text()));
+
+
       // setAiGenerateSummeryList(JSON.parse(result.response.text()));
       setAiGenerateSummeryList(summariesArray);
-      if (summariesArray.length > 0) {
-  setSummery(summariesArray[0].summary); // Automatically insert first suggestion into textarea
+if (summariesArray.length > 0) {
+  setSummery(summariesArray[0].summary);
 }
+
 
       toast("Summery Generated", "success");
     } catch (error) {
