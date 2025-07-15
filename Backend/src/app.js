@@ -9,15 +9,17 @@ config();
 const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(cookieParser());
+
 
 
 const corsOptions = {
-    origin: [process.env.ALLOWED_SITE],
+    origin: process.env.ALLOWED_SITE,
     credentials: true
 };
 
 app.use(cors(corsOptions));
+
+app.use(cookieParser());
 
 app.use("/api/users", userRouter);
 app.use("/api/resumes", resumeRouter);
