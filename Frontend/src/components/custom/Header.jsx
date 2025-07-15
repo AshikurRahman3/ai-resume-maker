@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import logo from "/logo.svg";
+import logo from "/logo.png";
 import { Button } from "../ui/button";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
@@ -51,7 +51,11 @@ function Header({user}) {
         </div>
       ) : (
         <Link to="/auth/sign-in">
-          <Button>Get Started</Button>
+          {/* <Button>Get Started</Button> */}
+          <button class="px-6 py-2 rounded-lg bg-gradient-to-r from-purple-500 via-pink-500 to-red-500 text-white font-semibold shadow-lg hover:shadow-pink-500/50 transition duration-300 hover:scale-105">
+  Login
+</button>
+
         </Link>
       )}
     </div>
