@@ -23,7 +23,7 @@ Its deployed in vercel and render.
 
 ## Demo Video
 
-[![Demo Preview](./images/ai-resume-maker_large.gif)](./images/ai-resume-maker.mp4)  
+[![Demo Preview](./images/ai-resume-maker_large.gif)](./images/ai-resume-maker_large.gif)  
 _Click on the gif image to view it in a larger size._
 
 ---
